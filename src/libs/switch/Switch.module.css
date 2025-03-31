@@ -1,0 +1,75 @@
+.switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.switch.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.switch.checked {
+    background-color: #0d6cc1;
+}
+
+.switch:not(.checked) {
+    background-color: #bfc2c4;
+}
+
+.switch.sm {
+    width: 30px;
+    height: 15px;
+}
+
+.switch.md {
+    width: 40px;
+    height: 20px;
+}
+
+.switch.lg {
+    width: 50px;
+    height: 25px;
+}
+
+.slider {
+    position: absolute;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+    background-color: #ffffff;
+}
+
+.slider.disabled {
+    background-color: #e0e4ea;
+}
+
+.slider.sm {
+    width: 11px;
+    height: 11px;
+}
+
+.slider.md {
+    width: 14px;
+    height: 14px;
+}
+
+.slider.lg {
+    width: 19px;
+    height: 19px;
+}
+
+.switch.checked .slider {
+    transform: translateX(22px);
+}
+
+.switch.sm.checked .slider {
+    transform: translateX(15px);
+}
+
+.switch.lg.checked .slider {
+    transform: translateX(27px);
+}

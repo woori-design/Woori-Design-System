@@ -1,0 +1,10 @@
+.divider {
+  border: none;
+  background-color: #007bff;
+  width: 100%;
+  height: 2px;
+}
+
+.divider-color--secondary {
+  background-color: #e0e0e0;
+}

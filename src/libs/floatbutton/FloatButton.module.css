@@ -1,0 +1,90 @@
+.floatButton {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.floatButton.left {
+  left: 16px;
+  right: auto;
+}
+
+.floatButton.right {
+  right: 16px;
+  left: auto;
+}
+
+.floatButton.center {
+  left: 50%;
+  bottom: 16px;
+}
+
+.floatButton.small {
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-size-small);
+}
+
+.floatButton.medium {
+  width: 50px;
+  height: 50px;
+  font-size: var(--font-size-base);
+}
+
+.floatButton.large {
+  width: 60px;
+  height: 60px;
+  font-size: var(--font-size-large);
+}
+
+.floatButton.circle {
+  border-radius: 50%;
+}
+
+.floatButton.rounded {
+  border-radius: 12px;
+}
+
+.floatButton.default {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  box-shadow: 0 4px 6px var(--color-shadow-light);
+}
+
+.floatButton.default:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 10px var(--color-shadow-dark);
+  transform: scale(1.1);
+}
+
+.floatButton:active {
+  transform: scale(0.95);
+  background-color: var(--color-primary-active);
+  box-shadow: 0 2px 4px var(--color-shadow-dark);
+}
+
+.floatButton.custom {
+  box-shadow: 0 4px 6px var(--color-shadow-light);
+}
+
+.floatButton.custom:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px var(--color-shadow-dark);
+}
+
+.floatButton.custom:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px var(--color-shadow-dark);
+}

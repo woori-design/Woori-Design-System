@@ -1,0 +1,53 @@
+.button {
+  display: flex;
+  gap: 10px;
+  min-width: fit-content;
+  background-color: #0d6cc1;
+  color: #fff;
+  letter-spacing: -0.02em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.button:disabled {
+  background-color: #a0a0a0;
+  color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.button--xlarge {
+  font-size: 18px;
+  padding: 16px 32px;
+}
+
+.button--large {
+  font-size: 16px;
+  padding: 14px 28px;
+}
+
+.button--medium {
+  font-size: 14px;
+  padding: 12px 24px;
+}
+
+.button--small {
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
+.button--xsmall {
+  font-size: 10px;
+  padding: 8px 16px;
+}
+
+.button--wide {
+  width: 100%;
+}
+
+.button:focus {
+  outline: 1.5px solid #0056b3;
+  outline-offset: 1px;
+}
