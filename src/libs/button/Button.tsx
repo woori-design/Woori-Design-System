@@ -1,24 +1,23 @@
 import { forwardRef } from "react";
-import { ButtonProps } from ".";
+
 import styles from "./Button.module.css";
+import { ButtonProps } from "./Button.type";
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ size = "xlarge", width, children, onClick, ...props }, ref) => {
-    const sizeClassName = styles[`button--${size}`];
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const { size, width, children, onClick, ...rest } = props;
 
-    return (
-      <button
-        ref={ref}
-        className={`${styles.button} ${sizeClassName}`}
-        disabled={props.disabled}
-        style={width ? { width } : undefined}
-        onClick={onClick}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-);
+  const sizeClassName = styles[`button--${size}`];
 
-export default Button;
+  return (
+    <button
+      ref={ref}
+      className={`${styles.button} ${sizeClassName}`}
+      disabled={props.disabled}
+      style={width ? { width } : undefined}
+      onClick={onClick}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
+});
