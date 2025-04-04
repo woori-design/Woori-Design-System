@@ -30,6 +30,7 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-mdx-gfm": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
     "@storybook/react": "^8.6.12",
@@ -37,7 +38,9 @@
     "@storybook/test": "^8.6.12",
     "@types/react": "^19.0.7",
     "@vitejs/plugin-react": "^4.3.4",
+    "react-docgen-typescript": "^2.2.2",
     "storybook": "^8.6.12",
+    "typescript": "^5.8.2",
     "vite": "^4.3.4",
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vite-plugin-dts": "^4.5.3"

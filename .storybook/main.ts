@@ -7,8 +7,8 @@ const config: StorybookConfig = {
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
+      shouldExtractValuesFromUnion: true,
       propFilter: (prop) => {
-        if (prop.required) return true;
         if (prop.parent) {
           return !prop.parent.fileName.includes("node_modules");
         }
@@ -22,6 +22,7 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm",
   ],
   framework: {
     name: "@storybook/react-vite",

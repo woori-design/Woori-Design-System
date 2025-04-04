@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
   },
   argTypes: {
-    // size: { description: "Button의 크기를 결정하는 속성" },
+    size: { description: "Button의 크기를 결정하는 속성" },
     width: { description: "Button의 가로 크기" },
     children: { description: "Button의 내용" },
   },
