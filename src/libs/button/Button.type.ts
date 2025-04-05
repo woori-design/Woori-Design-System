@@ -1,7 +1,7 @@
-type BoxButtonSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
+export type ButtonSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size: BoxButtonSize;
+  size: ButtonSize;
   width?: string;
   children?: React.ReactNode;
 }
