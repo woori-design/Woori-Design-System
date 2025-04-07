@@ -1,0 +1,52 @@
+import { Meta, ColorPalette, ColorItem, Canvas } from "@storybook/blocks";
+
+import * as ColorStories from "./color.stories";
+
+<Meta of={ColorStories} />
+
+# Color System
+
+Woori Design System의 대표 컬러 시스템입니다.
+WDS는 모든 환경에서 동일한 색상으로 적용됩니다.
+
+## Examples
+
+Woori Design System에서는 `theme.semantic.color.light`, `theme.semantic.color.dark` 등의 구조로  
+시멘틱 컬러를 JavaScript 객체로 제공합니다.
+
+React, Next.js 등 JS 기반 프로젝트에서는 아래와 같이 사용할 수 있습니다:
+
+```tsx
+import { theme } from "woori-design";
+
+const MyComponent = () => (
+  <div
+    style={{
+      backgroundColor: theme.semantic.color.light.lightAlternative,
+      width: "100px",
+      height: "100px",
+    }}
+  >
+    시멘틱 컬러가 적용된 박스입니다.
+  </div>
+);
+```
+
+<Canvas of={ColorStories.ExampleStory} />
+
+## Semantic Color System
+
+아래 색상들은 theme.semantic.color 내에 정의되어 있습니다.
+
+<br />
+
+<ColorStories.AllThemeColors>
+  {({ colors }) => (
+    <ColorPalette>
+      {colors.map((color) => (
+        <ColorItem title={color.title} subtitle="theme.semantic.color" colors={color.colors} />
+      ))}
+    </ColorPalette>
+  )}
+</ColorStories.AllThemeColors>
+```
