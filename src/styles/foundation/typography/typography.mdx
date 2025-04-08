@@ -1,0 +1,48 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as TypographyStories from "./typography.stories";
+
+<Meta of={TypographyStories} />
+
+# Typography System
+
+Woori Design System의 대표 타이포그래피 시스템입니다.
+
+- 폰트는 **Pretendard**를 사용합니다.
+- 굵기는 Rg(400), Md(500), Sb(600) 3가지가 있습니다.
+- 타이포그래피의 이름은 `[굵기]_[크기]` 형식으로 명명됩니다.
+
+<br />
+
+## Examples
+
+Woori Design System에서는 theme.typography 객체를 통해 타이포그래피 토큰을 JavaScript 객체로 제공합니다.
+
+React, Next.js 등 JS 기반 프로젝트에서 아래와 같이 사용할 수 있습니다
+
+<br />
+
+### inline style 방식
+
+```tsx
+import { theme } from "woori-design";
+
+const MyComponent = () => <div style={typography.Rg_14}>타이포그래피가 적용된 텍스트입니다.</div>;
+```
+
+### styled-components/emotion 방식
+
+```tsx
+import { theme } from "woori-design";
+
+const Box = styled.div`
+  ${typography.Sb_20}
+`;
+```
+
+<br />
+
+## Typography Token System
+
+모든 타이포그래피 스타일은 아래에서 확인할 수 있습니다.
+
+<Canvas of={TypographyStories.TypoStory} />
