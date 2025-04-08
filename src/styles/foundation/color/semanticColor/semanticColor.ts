@@ -30,4 +30,9 @@ export const semanticColors: SemanticColorsByTheme = {
     black: primitiveColors.black,
     blue_white: primitiveColors.blue_white,
   },
+  gray: {
+    light: primitiveColors.gray100,
+    medium: primitiveColors.gray200,
+    strong: primitiveColors.gray300,
+  },
 } as const;

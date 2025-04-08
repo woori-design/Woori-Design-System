@@ -17,4 +17,7 @@ export const primitiveColors: PrimitiveColors = {
   white: "#FFFFFF",
   black: "#101010",
   blue_white: "#F6FBFF",
+  gray100: "#D9D9D9",
+  gray200: "#B3B3B3",
+  gray300: "#AFAFAF",
 } as const;
