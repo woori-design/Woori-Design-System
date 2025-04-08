@@ -15,8 +15,17 @@ export type SemanticGradientColorName = "lightPrimary" | "darkPrimary" | "symbol
 
 export type SemanticAlertColorName = "alert";
 export type SemanticBWColorName = "white" | "black" | "blue_white";
+export type SemanticGrayColorName = "light" | "medium" | "strong";
 
-export const semanticThemeList = ["light", "dark", "primary", "gradient", "alert", "bw"] as const;
+export const semanticThemeList = [
+  "light",
+  "dark",
+  "primary",
+  "gradient",
+  "alert",
+  "bw",
+  "gray",
+] as const;
 
 export type SemanticTheme = (typeof semanticThemeList)[number];
 
@@ -38,5 +47,8 @@ export type SemanticColorsByTheme = {
   };
   bw: {
     [key in SemanticBWColorName]: string;
+  };
+  gray: {
+    [key in SemanticGrayColorName]: string;
   };
 };
