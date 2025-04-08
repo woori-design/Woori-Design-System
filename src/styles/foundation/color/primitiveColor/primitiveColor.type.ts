@@ -14,7 +14,10 @@ export type PrimitiveColorName =
   | "red"
   | "white"
   | "black"
-  | "blue_white";
+  | "blue_white"
+  | "gray100"
+  | "gray200"
+  | "gray300";
 
 export type PrimitiveColors = {
   [key in PrimitiveColorName]: string;
