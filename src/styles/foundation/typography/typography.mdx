@@ -5,8 +5,11 @@ import * as TypographyStories from "./typography.stories";
 
 # Typography System
 
-Woori Design System의 타이포그래피 시스템입니다.
-WDS는 모든 환경에서 일관된 타이포그래피를 제공합니다.
+Woori Design System의 대표 타이포그래피 시스템입니다.
+
+- 폰트는 **Pretendard**를 사용합니다.
+- 굵기는 Rg(400), Md(500), Sb(600) 3가지가 있습니다.
+- 타이포그래피의 이름은 `[굵기]_[크기]` 형식으로 명명됩니다.
 
 <br />
 
@@ -14,118 +17,32 @@ WDS는 모든 환경에서 일관된 타이포그래피를 제공합니다.
 
 Woori Design System에서는 theme.typography 객체를 통해 타이포그래피 토큰을 JavaScript 객체로 제공합니다.
 
-React, Next.js 등 JS 기반 프로젝트에서는 아래와 같이 사용할 수 있습니다:
+React, Next.js 등 JS 기반 프로젝트에서 아래와 같이 사용할 수 있습니다
+
+<br />
+
+### inline style 방식
 
 ```tsx
 import { theme } from "woori-design";
 
-const MyComponent = () => (
-  <div
-    style={{
-      fontFamily: theme.typography.Rg_t5.fontFamily,
-      fontWeight: theme.typography.Rg_t5.fontWeight,
-      fontSize: theme.typography.Rg_t5.fontSize,
-    }}
-  >
-    타이포그래피가 적용된 텍스트입니다.
-  </div>
-);
+const MyComponent = () => <div style={typography.Rg_14}>타이포그래피가 적용된 텍스트입니다.</div>;
+```
+
+### styled-components/emotion 방식
+
+```tsx
+import { theme } from "woori-design";
+
+const Box = styled.div`
+  ${typography.Sb_20}
+`;
 ```
 
 <br />
 
 ## Typography Token System
 
-Woori Design System은 세 가지 주요 폰트 웨이트와 t1부터 t10까지의 체계적인 폰트 사이즈를 제공합니다.
+모든 타이포그래피 스타일은 아래에서 확인할 수 있습니다.
 
-<br />
-
-### 1. Font Family
-
-우리 디자인 시스템은 **Pretendard**를 기본 폰트로 사용합니다.
-
-```css
-font-family: "Pretendard", "sans-serif";
-```
-
-### 2. Token Naming
-
-각 타이포그래피 토큰은 `WD-[웨이트]_t[사이즈]` 형식으로 명명됩니다.
-
-- **WD**: Woori Design의 약자
-- **[웨이트]**: Rg(Regular), Md(Medium), SB(SemiBold)
-- **t[사이즈]**: t1부터 t10까지의 사이즈 체계
-
-<br />
-
-### 3. Font Weights
-
-타이포그래피 시스템은 다음 세 가지 웨이트를 제공합니다:
-
-| 웨이트 코드 | 웨이트 이름 | 웨이트 값 |
-| ----------- | ----------- | --------- |
-| Rg          | Regular     | 400       |
-| Md          | Medium      | 500       |
-| SB          | SemiBold    | 600       |
-
-<br />
-
-### 4. Font Sizes
-
-타이포그래피 시스템은 t1부터 t10까지 10가지 사이즈를 제공합니다:
-
-| 사이즈 코드 | 픽셀 값 | rem 값    |
-| ----------- | ------- | --------- |
-| t1          | 11px    | 0.6875rem |
-| t2          | 12px    | 0.75rem   |
-| t3          | 13px    | 0.8125rem |
-| t4          | 14px    | 0.875rem  |
-| t5          | 16px    | 1rem      |
-| t6          | 18px    | 1.125rem  |
-| t7          | 20px    | 1.25rem   |
-| t8          | 22px    | 1.375rem  |
-| t9          | 24px    | 1.5rem    |
-| t10         | 26px    | 1.625rem  |
-
-<br />
-
-### 5. Line Height
-
-기본 라인 하이트는 1.5로 설정되어 있습니다. 필요에 따라 개별 토큰에 다른 라인 하이트를 지정할 수 있습니다.
-
-```typescriptreact
-// 기본 라인 하이트
-export const defaultLineHeight = 1.5;
-```
-
-### 6. Weight & Size Combinations
-
-#### (1) Regular (Rg, 400)
-
-기본 본문 텍스트에 사용됩니다. 대부분의 일반 텍스트 콘텐츠에 적합합니다.
-
-| 이름      | 설명         | 값               |
-| --------- | ------------ | ---------------- |
-| WD-Rg_t1  | Regular 11px | 0.6875rem (11px) |
-| WD-Rg_t5  | Regular 16px | 1rem (16px)      |
-| WD-Rg_t10 | Regular 26px | 1.625rem (26px)  |
-
-#### (2) Medium (Md, 500)
-
-중요도가 약간 높은 텍스트나 서브 헤딩에 사용됩니다.
-
-| 이름      | 설명        | 값               |
-| --------- | ----------- | ---------------- |
-| WD-Md_t1  | Medium 11px | 0.6875rem (11px) |
-| WD-Md_t5  | Medium 16px | 1rem (16px)      |
-| WD-Md_t10 | Medium 26px | 1.625rem (26px)  |
-
-#### (3) SemiBold (SB, 600)
-
-제목, 헤딩, 강조 텍스트에 사용됩니다.
-
-| 이름      | 설명          | 값               |
-| --------- | ------------- | ---------------- |
-| WD-SB_t1  | SemiBold 11px | 0.6875rem (11px) |
-| WD-SB_t5  | SemiBold 16px | 1rem (16px)      |
-| WD-SB_t10 | SemiBold 26px | 1.625rem (26px)  |
+<Canvas of={TypographyStories.TypoStory} />
