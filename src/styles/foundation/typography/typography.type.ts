@@ -1,47 +1,9 @@
-export type FontWeight = "Rg" | "Md" | "SB";
+import { CSSProperties } from "react";
 
-export type FontSize =
-  | "t1"
-  | "t2"
-  | "t3"
-  | "t4"
-  | "t5"
-  | "t6"
-  | "t7"
-  | "t8"
-  | "t9"
-  | "t10";
+export type FontWeight = "Rg" | "Md" | "Sb";
+
+export type FontSize = 11 | 12 | 14 | 16 | 18 | 20 | 22 | 24 | 26 | 28 | 32 | 36 | 48;
 
 export type TypographyToken = `${FontWeight}_${FontSize}`;
 
-export interface TypographyStyle {
-  fontFamily: string;
-  fontWeight: number;
-  fontSize: string;
-  lineHeight?: string;
-  letterSpacing?: string;
-}
-
-export interface TypographyTokenMap {
-  [key in TypographyToken]: TypographyStyle;
-}
-
-export interface WeightNameMap {
-  Rg: string;
-  Md: string;
-  SB: string;
-}
-
-export interface WeightValueMap {
-  Rg: number;
-  Md: number;
-  SB: number;
-}
-
-export interface SizePixelMap {
-  [key in FontSize]: number;
-}
-
-export interface SizeRemMap {
-  [key in FontSize]: string;
-}
+export type TypoType = Record<TypographyToken, CSSProperties>;
