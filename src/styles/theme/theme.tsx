@@ -10,5 +10,5 @@ export const theme: ThemeType = {
   semantic: {
     color: semanticColors,
   },
-  typography: typography,
+  typo: typography,
 };

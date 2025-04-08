@@ -1,6 +1,6 @@
 import { PrimitiveColors } from "../foundation/color/primitiveColor/primitiveColor.type";
 import { SemanticColorsByTheme } from "../foundation/color/semanticColor/semanticColor.type";
-import { TypographyTokenMap } from "../foundation/typography/typography.type";
+import { TypoType } from "../foundation/typography/typography.type";
 
 export type ThemeType = {
   primitive: {
@@ -9,5 +9,5 @@ export type ThemeType = {
   semantic: {
     color: SemanticColorsByTheme;
   };
-  typography: TypographyTokenMap;
+  typo: TypoType;
 };
