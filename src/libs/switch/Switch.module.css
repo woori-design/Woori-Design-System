@@ -2,9 +2,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    border-radius: 20px;
     transition: background-color 0.3s;
     cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+.switch.checked {
+    background-color: #d0e4ff;
 }
 
 .switch.disabled {
@@ -12,64 +16,113 @@
     opacity: 0.6;
 }
 
-.switch.checked {
-    background-color: #0d6cc1;
-}
-
-.switch:not(.checked) {
-    background-color: #bfc2c4;
-}
-
 .switch.sm {
-    width: 30px;
-    height: 15px;
+    width: 42px;
+    height: 26px;
+    border-radius: 21px;
 }
-
 .switch.md {
-    width: 40px;
-    height: 20px;
+    width: 52px;
+    height: 32px;
+    border-radius: 27px;
 }
-
+.switch.xl {
+    width: 65px;
+    height: 40px;
+    border-radius: 34px;
+}
 .switch.lg {
-    width: 50px;
-    height: 25px;
+    width: 82px;
+    height: 50px;
+    border-radius: 42px;
 }
 
-.slider {
+.switch .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    left: 2px;
     border-radius: 50%;
     transition: transform 0.3s, background-color 0.3s;
+    background-color: #cfd3d8;
+}
+
+.switch.pointColor.checked .slider {
+    background-color: #85bfff;
+}
+
+.switch.pointColor:not(.checked) .slider {
+    background-color: #cfd3d8;
+}
+
+.switch:not(.pointColor).checked .slider {
     background-color: #ffffff;
 }
 
-.slider.disabled {
-    background-color: #e0e4ea;
+.switch.sm .slider {
+    width: 20px;
+    height: 20px;
+    left: 3px;
 }
-
-.slider.sm {
-    width: 11px;
-    height: 11px;
+.switch.md .slider {
+    width: 25px;
+    height: 25px;
+    left: 4px;
 }
-
-.slider.md {
-    width: 14px;
-    height: 14px;
+.switch.xl .slider {
+    width: 30px;
+    height: 30px;
+    left: 4px;
 }
-
-.slider.lg {
-    width: 19px;
-    height: 19px;
-}
-
-.switch.checked .slider {
-    transform: translateX(22px);
+.switch.lg .slider {
+    width: 39px;
+    height: 39px;
+    left: 5px;
 }
 
 .switch.sm.checked .slider {
-    transform: translateX(15px);
+    transform: translateX(16px);
+}
+.switch.md.checked .slider {
+    transform: translateX(19px);
+}
+.switch.xl.checked .slider {
+    transform: translateX(27px);
+}
+.switch.lg.checked .slider {
+    transform: translateX(32px);
 }
 
-.switch.lg.checked .slider {
-    transform: translateX(27px);
+.switch .point {
+    margin: 0;
+    color: #000000;
+}
+
+.switch.pointColor.checked .point {
+    color: #ffffff;
+}
+
+.switch.pointColor:not(.checked) .point {
+    color: #000000;
+}
+
+.switch:not(.pointColor).checked .point {
+    color: #1c7ed6;
+}
+
+.switch:not(.pointColor):not(.checked) .point {
+    color: #000000;
+}
+
+.switch.sm .point {
+    font-size: 10px;
+}
+.switch.md .point {
+    font-size: 12px;
+}
+.switch.xl .point {
+    font-size: 14px;
+}
+.switch.lg .point {
+    font-size: 16px;
 }
