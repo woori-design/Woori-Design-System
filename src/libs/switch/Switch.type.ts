@@ -1,9 +1,12 @@
 export interface SwitchProps {
     checked?: boolean;
     onChange?: (checked: boolean) => void;
-    pointText?: [string, string];
-    pointColor?:boolean,
-    size?: 'sm' | 'md' | 'xl' | 'lg';
+    pointText?: {
+        on: string;
+        off: string;
+    };
+    pointColor?: boolean;
+    size?: 'small' | 'medium' | 'large' | 'xlarge';
     disabled?: boolean;
     className?: string;
     style?: React.CSSProperties;

@@ -16,22 +16,22 @@
     opacity: 0.6;
 }
 
-.switch.sm {
+.switch.small {
     width: 42px;
     height: 26px;
     border-radius: 21px;
 }
-.switch.md {
+.switch.medium {
     width: 52px;
     height: 32px;
     border-radius: 27px;
 }
-.switch.xl {
+.switch.large {
     width: 65px;
     height: 40px;
     border-radius: 34px;
 }
-.switch.lg {
+.switch.xlarge {
     width: 82px;
     height: 50px;
     border-radius: 42px;
@@ -44,52 +44,52 @@
     position: absolute;
     border-radius: 50%;
     transition: transform 0.3s, background-color 0.3s;
-    background-color: #cfd3d8;
+    background-color: #ffffff;
 }
 
 .switch.pointColor.checked .slider {
-    background-color: #85bfff;
+    background-color: #5E99D6;
 }
 
 .switch.pointColor:not(.checked) .slider {
-    background-color: #cfd3d8;
+    background-color: #afafaf;
 }
 
 .switch:not(.pointColor).checked .slider {
     background-color: #ffffff;
 }
 
-.switch.sm .slider {
+.switch.small .slider {
     width: 20px;
     height: 20px;
     left: 3px;
 }
-.switch.md .slider {
+.switch.medium .slider {
     width: 25px;
     height: 25px;
     left: 4px;
 }
-.switch.xl .slider {
+.switch.large .slider {
     width: 30px;
     height: 30px;
     left: 4px;
 }
-.switch.lg .slider {
+.switch.xlarge .slider {
     width: 39px;
     height: 39px;
     left: 5px;
 }
 
-.switch.sm.checked .slider {
+.switch.small.checked .slider {
     transform: translateX(16px);
 }
-.switch.md.checked .slider {
+.switch.medium.checked .slider {
     transform: translateX(19px);
 }
-.switch.xl.checked .slider {
+.switch.large.checked .slider {
     transform: translateX(27px);
 }
-.switch.lg.checked .slider {
+.switch.xlarge.checked .slider {
     transform: translateX(32px);
 }
 
@@ -114,15 +114,15 @@
     color: #000000;
 }
 
-.switch.sm .point {
-    font-size: 10px;
-}
-.switch.md .point {
-    font-size: 12px;
-}
-.switch.xl .point {
-    font-size: 14px;
-}
-.switch.lg .point {
-    font-size: 16px;
-}
+/*.switch.small .point {*/
+/*    font-size: 10px;*/
+/*}*/
+/*.switch.medium .point {*/
+/*    font-size: 12px;*/
+/*}*/
+/*.switch.large .point {*/
+/*    font-size: 14px;*/
+/*}*/
+/*.switch.xlarge .point {*/
+/*    font-size: 16px;*/
+/*}*/

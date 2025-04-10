@@ -6,9 +6,12 @@ import { typography } from "../../styles/foundation/typography/typography";
 const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
                                                             checked,
                                                             onChange,
-                                                            pointText = ["ON", "OFF"],
+                                                            pointText = {
+                                                                on: "ON",
+                                                                off: "OFF",
+                                                            },
                                                             pointColor = false,
-                                                            size = "md",
+                                                            size = "medium",
                                                             disabled = false,
                                                             className,
                                                             style,
@@ -22,10 +25,10 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
     const cx = (...classes: (string | false | undefined)[]) => classes.filter(Boolean).join(" ");
 
     const fontMap: Record<string, CSSProperties> = {
-        sm: typography["Sb_8"],
-        md: typography["Sb_9"],
-        xl: typography["Sb_11"],
-        lg: typography["Sb_14"],
+        small: typography["Sb_8"],
+        medium: typography["Sb_9"],
+        large: typography["Sb_11"],
+        xlarge: typography["Sb_14"],
     };
     const pointTextStyle = fontMap[size] ?? typography["Sb_9"];
 
@@ -33,21 +36,13 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
         styles.switch,
         styles[size],
         actualChecked && styles.checked,
+        pointColor && styles.pointColor,
         disabled && styles.disabled,
         className
     );
 
-    const sliderClassName = cx(
-        styles.slider,
-        styles[size],
-        disabled && styles.disabled
-    );
-
-    const pointTextClassName = cx(
-        styles.point,
-        styles[size],
-        disabled && styles.disabled
-    );
+    const sliderClassName = styles.slider;
+    const pointTextClassName = styles.point;
 
     const handleChange = (newChecked: boolean) => {
         if (!isControlled) {
@@ -86,8 +81,8 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
             <div data-role="slider" className={sliderClassName}>
                 <p className={pointTextClassName} style={pointTextStyle}>
                     {actualChecked
-                        ? (pointText?.[0] ?? "ON")
-                        : (pointText?.[1] ?? "OFF")}
+                        ? (pointText?.on?.valueOf() ?? "ON")
+                        : (pointText?.off?.valueOf() ?? "OFF")}
                 </p>
             </div>
         </div>
