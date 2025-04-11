@@ -1,0 +1,45 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+import * as DividerStories from "./Divider.stories";
+import Divider from "./Divider";
+import React from "react";
+
+<Meta of={DividerStories} />
+
+# Divider
+
+Divider는 섹션 간의 구분을 명확하게 보여주기 위한 **단순한 수평선 컴포넌트**입니다.  
+디자인 시스템에 정의된 컬러와 두께 기준으로만 사용되며, 불필요한 커스터마이징은 지양합니다.
+
+<Canvas of={DividerStories.Default} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+```tsx
+import { Divider } from "@woori-design";
+
+<Divider width="100%" thickness={2} />;
+```
+
+<br />
+<br />
+
+## Props
+모든 Props는 optional이며 기본값이 설정되어 있습니다.
+
+| 이름        | 타입   | 설명                | 필수 | 기본값   |
+| ----------- | ------ | ------------------- | ---- | -------- |
+| `width`     | string | 가로 길이           | ❌   | `"100%"` |
+| `thickness` | number | 선의 두께 (px 단위) | ❌   | `1`      |
+
+<br />
+<br />
+
+## 주의사항
+
+컬러는 디자인 시스템 내 지정된 색상만 사용해야 합니다.
+
+구분선 외 다른 목적으로 사용하는 것은 권장되지 않습니다.
