@@ -1,6 +1,6 @@
 {
   "name": "woori-design",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "A React component library for FloatButton and others",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -53,5 +53,8 @@
     "woori-group"
   ],
   "author": "1223v",
-  "license": "MIT"
+  "license": "MIT",
+  "sideEffects": [
+    "dist/index.css"
+  ]
 }
