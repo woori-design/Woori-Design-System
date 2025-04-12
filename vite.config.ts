@@ -15,12 +15,12 @@ export default defineConfig({
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
+        assetFileNames: "index.[ext]",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
         },
       },
     },
-    cssCodeSplit: true,
   },
 });
