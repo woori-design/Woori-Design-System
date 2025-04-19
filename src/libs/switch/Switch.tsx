@@ -81,8 +81,8 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
             <div data-role="slider" className={sliderClassName}>
                 <p className={pointTextClassName} style={pointTextStyle}>
                     {actualChecked
-                        ? (pointText?.on?.valueOf() ?? "ON")
-                        : (pointText?.off?.valueOf() ?? "OFF")}
+                        ? (pointText?.on ?? "ON")
+                        : (pointText?.off ?? "OFF")}
                 </p>
             </div>
         </div>
