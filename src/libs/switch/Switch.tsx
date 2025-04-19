@@ -3,6 +3,13 @@ import styles from "./Switch.module.css";
 import { SwitchProps } from "./Switch.type";
 import { typography } from "../../styles/foundation/typography/typography";
 
+const fontMap: Record<string, CSSProperties> = {
+    small: typography["Sb_8"],
+    medium: typography["Sb_9"],
+    large: typography["Sb_11"],
+    xlarge: typography["Sb_14"],
+};
+
 const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
                                                             checked,
                                                             onChange,
@@ -24,12 +31,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(({
 
     const cx = (...classes: (string | false | undefined)[]) => classes.filter(Boolean).join(" ");
 
-    const fontMap: Record<string, CSSProperties> = {
-        small: typography["Sb_8"],
-        medium: typography["Sb_9"],
-        large: typography["Sb_11"],
-        xlarge: typography["Sb_14"],
-    };
+
     const pointTextStyle = fontMap[size] ?? typography["Sb_9"];
 
     const switchClassName = cx(
