@@ -10,7 +10,7 @@ interface FloatButtonOwnProps {
   /** 버튼 모양 */
   shape?: "circle" | "square";
   /** 자식 요소 (MenuItem 컴포넌트만 허용) */
-  children?: ReactElement<MenuItemProps> | ReactElement<MenuItemProps>[];
+  children: ReactElement<MenuItemProps>[];
   /** 메뉴 상태 변경 콜백 - 열림/닫힘 상태 전달 */
   onToggle?: (isOpen: boolean) => void;
 }
