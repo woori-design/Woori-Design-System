@@ -31,8 +31,48 @@ export default meta;
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
+  render: () => (
+    <div style={{ width: "800px" }}>
+      <Divider width="100%" thickness={1} />
+    </div>
+  ),
+};
+
+export const Primary: Story = {
   args: {
     width: "300px",
     thickness: 2,
   },
+};
+
+export const Width: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <h4>width: 800px</h4>
+      <Divider width="800px" />
+    </div>
+  ),
+};
+
+export const Thickness: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "center" }}>
+        <h4>thinckness: 1px</h4>
+        <Divider width="300px" thickness={1} />
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "center" }}>
+        <h4>thinckness: 2px</h4>
+        <Divider width="300px" thickness={2} />
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "center" }}>
+        <h4>thinckness: 3px</h4>
+        <Divider width="300px" thickness={3} />
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "center" }}>
+        <h4>thinckness: 4px</h4>
+        <Divider width="300px" thickness={4} />
+      </div>
+    </div>
+  ),
 };
