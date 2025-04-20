@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, CSSProperties, useEffect } from "react";
+import React, { useState, forwardRef, CSSProperties } from "react";
 import styles from "./Switch.module.css";
 import { SwitchProps } from "./Switch.type";
 import { typography } from "../../styles/foundation/typography/typography";
