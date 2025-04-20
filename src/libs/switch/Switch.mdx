@@ -1,4 +1,4 @@
-import {Canvas, Meta, Controls} from "@storybook/blocks";
+import { Canvas, Meta, Controls } from "@storybook/blocks";
 import * as SwitchStories from "./Switch.stories.tsx";
 import Switch from "./Switch";
 import React from "react";
@@ -9,6 +9,135 @@ import React from "react";
 
 사용자가 설정을 켜거나 끌 수 있도록 하는 요소입니다. 일반적으로 이진 상태를 나타내며, 사용자가 선택한 옵션을 시각적으로 표시합니다.<br />
 
+<Canvas of={SwitchStories.Primary} />
+<Controls />
+
+<br />
+
+## 사용법
+
+Switch의 필수 사용법입니다.
+
+```tsx
+import "woori-design/dist/index.css"; // NextJS 프로젝트인 경우 추가
+import { Switch } from "woori-design";
+```
+
+필수 속성인 `size`를 설정하여 Switch의 크기를 정합니다.
+
+```tsx
+<Switch size="medium" />
+```
+
+### size
+
+지원하는 size 크기는 `xlarge`, `large`, `medium`, `small`입니다.
+
+<Canvas of={SwitchStories.Size} />
+
+이외의 속성은 하단의 예시에서 확인할 수 있습니다.
+
+<br />
+<br />
+
+## 예시
+
+### checked
+
+Switch의 활성 여부를 결정합니다.
+
+기본값은 `false`이며, `true`와 `false` 중 적용할 수 있습니다.
+
+`checked 속성`은 Switch의 상태를 `외부에서 제어할 때` 사용합니다.
+
+상태 값을 useState 등으로 관리하며 **`onCheckedChange`** 이벤트로 값을 갱신해야 합니다.
+
+```tsx
+const Componenet = () => {
+  const [isChecked, setIsChecked] = useState(true);
+
+  return (
+    <Switch
+      size="medium"
+      checked={isChecked}
+      onCheckedChange={(val) => {
+        setIsChecked(val);
+        alert(`Switch 체크 여부: ${val}`);
+      }}
+    />
+  );
+};
+```
+
+`checked 속성을 넣지 않을 경우`, switch 내부에서 상태를 관리합니다.
+
+`onCheckedChange`를 통해 상태 변경 이벤트를 걸어줄 수 있습니다.
+
+```tsx
+<Switch
+  size="medium"
+  onCheckedChange={(val) => {
+    alert(`Switch 체크 여부: ${val}`);
+  }}
+/>
+```
+
 <Canvas of={SwitchStories.Checked} />
 
-<Controls />
+### disabled
+
+Switch 동작을 막는 disabled 속성입니다.
+
+이 속성이 true일 시, Switch를 비활성화합니다.
+
+```tsx
+<Switch size="medium" disabled={true} />
+```
+
+<Canvas of={SwitchStories.Disabled} />
+
+### pointColor
+
+Switch에는 `white`, `color`, 2가지의 컬러 버전이 있습니다.
+
+기본값은 `white`입니다.
+
+```tsx
+<Switch
+  size="medium"
+  pointColor="white" // 기본값
+/>
+
+<Switch
+  size="medium"
+  pointColor="color"
+/>
+```
+
+<Canvas of={SwitchStories.PointColor} />
+
+### pointText
+
+Switch의 상태를 나타내는 text를 정할 수 있습니다.
+
+기본값은 `ON`, `OFF` 입니다.
+
+```tsx
+<Switch
+  size="medium"
+  pointText={{
+    on: "켬",
+    off: "끔",
+  }}
+/>
+```
+
+<Canvas of={SwitchStories.PointText} />
+
+### onCheckedChange
+
+onCheckedChange 속성을 통해 Switch의 상태 전환 시, 수행할 이벤트를 할당할 수 있습니다.
+
+checked 속성 사용 시 필수로 사용해야 합니다.
+
+<Canvas of={SwitchStories.Checked} />
