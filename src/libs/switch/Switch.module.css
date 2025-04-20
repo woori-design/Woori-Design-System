@@ -1,128 +1,119 @@
 .switch {
-    position: relative;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    background-color: #f1f1f1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  background-color: #f1f1f1;
 }
 
 .switch.checked {
-    background-color: #d0e4ff;
+  background-color: #d0e4ff;
 }
 
 .switch.disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .switch.small {
-    width: 42px;
-    height: 26px;
-    border-radius: 21px;
+  width: 42px;
+  height: 26px;
+  border-radius: 21px;
 }
 .switch.medium {
-    width: 52px;
-    height: 32px;
-    border-radius: 27px;
+  width: 52px;
+  height: 32px;
+  border-radius: 27px;
 }
 .switch.large {
-    width: 65px;
-    height: 40px;
-    border-radius: 34px;
+  width: 65px;
+  height: 40px;
+  border-radius: 34px;
 }
 .switch.xlarge {
-    width: 82px;
-    height: 50px;
-    border-radius: 42px;
+  width: 82px;
+  height: 50px;
+  border-radius: 42px;
 }
 
 .switch .slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    border-radius: 50%;
-    transition: transform 0.3s, background-color 0.3s;
-    background-color: #ffffff;
-}
-
-.switch.pointColor.checked .slider {
-    background-color: #5E99D6;
-}
-
-.switch.pointColor:not(.checked) .slider {
-    background-color: #afafaf;
-}
-
-.switch:not(.pointColor).checked .slider {
-    background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.3s, background-color 0.3s;
+  background-color: #ffffff;
 }
 
 .switch.small .slider {
-    width: 20px;
-    height: 20px;
-    left: 3px;
+  width: 20px;
+  height: 20px;
+  left: 3px;
 }
 .switch.medium .slider {
-    width: 25px;
-    height: 25px;
-    left: 4px;
+  width: 25px;
+  height: 25px;
+  left: 4px;
 }
 .switch.large .slider {
-    width: 30px;
-    height: 30px;
-    left: 4px;
+  width: 30px;
+  height: 30px;
+  left: 4px;
 }
 .switch.xlarge .slider {
-    width: 39px;
-    height: 39px;
-    left: 5px;
+  width: 39px;
+  height: 39px;
+  left: 5px;
 }
 
 .switch.small.checked .slider {
-    transform: translateX(16px);
+  transform: translateX(16px);
 }
 .switch.medium.checked .slider {
-    transform: translateX(19px);
+  transform: translateX(19px);
 }
 .switch.large.checked .slider {
-    transform: translateX(27px);
+  transform: translateX(27px);
 }
 .switch.xlarge.checked .slider {
-    transform: translateX(32px);
+  transform: translateX(32px);
 }
 
 .switch .point {
-    margin: 0;
-    color: #000000;
+  margin: 0;
+  color: #000000;
 }
 
-.switch.pointColor.checked .point {
-    color: #ffffff;
+.switch.pointColor-white.checked .slider {
+  background-color: #ffffff;
 }
 
-.switch.pointColor:not(.checked) .point {
-    color: #000000;
+.switch.pointColor-white:not(.checked) .slider {
+  background-color: #ffffff;
 }
 
-.switch:not(.pointColor).checked .point {
-    color: #1c7ed6;
+.switch.pointColor-white.checked .point {
+  color: #1c7ed6;
 }
 
-.switch:not(.pointColor):not(.checked) .point {
-    color: #000000;
+.switch.pointColor-white:not(.checked) .point {
+  color: #000000;
 }
 
-/*.switch.small .point {*/
-/*    font-size: 10px;*/
-/*}*/
-/*.switch.medium .point {*/
-/*    font-size: 12px;*/
-/*}*/
-/*.switch.large .point {*/
-/*    font-size: 14px;*/
-/*}*/
-/*.switch.xlarge .point {*/
-/*    font-size: 16px;*/
-/*}*/
+.switch.pointColor-color.checked .slider {
+  background-color: #5e99d6;
+}
+
+.switch.pointColor-color:not(.checked) .slider {
+  background-color: #afafaf;
+}
+
+.switch.pointColor-color.checked .point {
+  color: #ffffff;
+}
+
+.switch.pointColor-color:not(.checked) .point {
+  color: #000000;
+}
