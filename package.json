@@ -1,6 +1,6 @@
 {
   "name": "woori-design",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "A React component library for FloatButton and others",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -33,9 +33,11 @@
     "@storybook/addon-mdx-gfm": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
+    "@storybook/manager-api": "^8.6.12",
     "@storybook/react": "^8.6.12",
     "@storybook/react-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
+    "@storybook/theming": "^8.6.12",
     "@types/react": "^19.0.7",
     "@vitejs/plugin-react": "^4.3.4",
     "react-docgen-typescript": "^2.2.2",
@@ -53,5 +55,8 @@
     "woori-group"
   ],
   "author": "1223v",
-  "license": "MIT"
+  "license": "MIT",
+  "sideEffects": [
+    "dist/index.css"
+  ]
 }

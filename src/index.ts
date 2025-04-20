@@ -1,7 +1,6 @@
-import "./styles/colors.css";
-import "./styles/spacing.css";
-import "./styles/typography.css";
+import "./index.css";
 
+export { theme } from "./styles/theme/theme";
 export { default as FloatButton } from "./libs/floatbutton/FloatButton";
 export { default as Divider } from "./libs/divider/Divider";
 export { default as Checkbox } from "./libs/checkbox/Checkbox";
