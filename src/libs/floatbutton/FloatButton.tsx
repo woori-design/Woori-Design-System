@@ -14,7 +14,7 @@ import { primitiveColors } from "../../styles/foundation/color/primitiveColor/pr
 /**
  * 플러스 아이콘 SVG 컴포넌트 (Circle 모양용)
  */
-const CircleIcon = ({ className }: { className?: string }) => (
+const PlusIconWhenCircleShape = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 26 26"
@@ -43,7 +43,7 @@ const CircleIcon = ({ className }: { className?: string }) => (
 /**
  * 플러스 아이콘 SVG 컴포넌트 (Square 모양용)
  */
-const SquareIcon = ({ className }: { className?: string }) => (
+const PlusIconWhenSquareShape = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 48 48"
@@ -189,7 +189,7 @@ const FloatButton = ({
   };
 
   // 아이콘 선택
-  const PlusIcon = shape === "circle" ? CircleIcon : SquareIcon;
+  const PlusIcon = shape === "circle" ? PlusIconWhenCircleShape : PlusIconWhenSquareShape;
 
   return (
     <>
