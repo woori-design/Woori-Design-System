@@ -1,16 +1,25 @@
 import styles from "./Divider.module.css";
-import { DividerProps } from "./Divider.type";
-import { theme } from "../../styles/theme/theme";
+import { DividerProps } from "./Divider.types";
 
-const Divider = ({ width = "100%", thickness = 1 }: DividerProps) => {
+const Divider = ({
+  width = "300px",
+  lineColor = "primary",
+  thickness = 6,
+}: DividerProps) => {
   const dividerStyles = {
     width,
-    border: "none",
-    borderTop: `${thickness}px solid ${theme.semantic.color.gray.light}`,
-    margin: "0 auto",
+    height: `${thickness}px`,
+    backgroundColor: lineColor === "primary" ? "#007bff" : "#e0e0e0",
   };
 
-  return <hr className={styles.divider} style={dividerStyles} />;
+  const className = [
+    styles.divider,
+    lineColor !== "primary" && styles["divider-color--secondary"],
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <hr className={className} style={dividerStyles} />;
 };
 
 export default Divider;
