@@ -1,18 +1,28 @@
+/* 플로팅 버튼 래퍼 */
+.floatButtonWrapper {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  width: max-content;
+  height: max-content;
+}
+
 .floatButton {
-  position: fixed; /* 화면에 고정된 위치 */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  font-family: "Pretendard", sans-serif; /* 직접 참조 */
-  font-size: 14px; /* 기본 폰트 크기 */
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease,
     transform 0.3s ease;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  z-index: 100; /* 메뉴가 위에 나타날 수 있도록 낮은 z-index 설정 */
   background-color: #0067ac; /* primitiveColors.blue500 */
   padding: 10px;
   box-sizing: border-box;
@@ -102,7 +112,10 @@
 
 /* 메뉴 컨테이너 스타일 */
 .menuContainer {
-  position: fixed; /* 버튼과 동일하게 고정 위치 */
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column-reverse; /* 애니메이션을 위해 역순 정렬 */
   align-items: center;

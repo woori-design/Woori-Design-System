@@ -137,21 +137,6 @@ const FloatButton = ({
     };
   }, [isOpen, onToggle]);
 
-  /** 메뉴 컨테이너 위치 계산 */
-  const getMenuContainerStyle = () => {
-    const buttonRect = buttonRef.current?.getBoundingClientRect();
-    if (!buttonRect) return {};
-
-    // 메뉴 컨테이너 위치를 버튼 중앙으로 정확히 설정
-    return {
-      bottom: `${window.innerHeight - buttonRect.top - buttonRect.height}px`,
-      left: `${buttonRect.left + buttonRect.width / 2}px`,
-      transform: "translateX(-50%)",
-      width: `${buttonRect.width}px`,
-      height: `${buttonRect.height}px`,
-    };
-  };
-
   // children이 있는지 확인 및 모두 유효한지 확인
   const validMenuItems = Children.toArray(children).filter(
     (child): child is ReactElement<MenuItemProps> =>
@@ -189,10 +174,12 @@ const FloatButton = ({
   };
 
   // 아이콘 선택
-  const PlusIcon = shape === "circle" ? PlusIconWhenCircleShape : PlusIconWhenSquareShape;
+  const PlusIcon =
+    shape === "circle" ? PlusIconWhenCircleShape : PlusIconWhenSquareShape;
 
+  // 래퍼로 감싸고 플로팅 버튼 로직 적용
   return (
-    <>
+    <div className={styles.floatButtonWrapper}>
       <button
         className={buttonClasses}
         style={style}
@@ -206,15 +193,11 @@ const FloatButton = ({
       </button>
 
       {hasMenuItems && (
-        <div
-          className={menuContainerClasses}
-          ref={menuRef}
-          style={getMenuContainerStyle()}
-        >
+        <div className={menuContainerClasses} ref={menuRef}>
           {renderMenuItems()}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
