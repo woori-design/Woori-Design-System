@@ -1,5 +1,6 @@
 import { addons } from "@storybook/manager-api";
 import { create } from "@storybook/theming";
+import favicon from "../public/woori-design-circle.png";
 
 addons.setConfig({
   theme: create({
@@ -29,3 +30,8 @@ addons.setConfig({
     inputBorderRadius: 2,
   }),
 });
+
+const link = document.createElement("link");
+link.setAttribute("rel", "shortcut icon");
+link.setAttribute("href", favicon);
+document.head.appendChild(link);
