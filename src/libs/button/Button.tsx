@@ -4,10 +4,18 @@ import styles from "./Button.module.css";
 import { ButtonProps } from "./Button.type";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const { size, width, variant = "box", rounded = 16, children, onClick, ...rest } = props;
+  const {
+    type = "button",
+    size,
+    width,
+    variant = "box",
+    rounded = 16,
+    children,
+    onClick,
+    ...rest
+  } = props;
 
   const className = [
-    styles.button,
     styles[`button--${size}`],
     variant === "text" && styles["button--text"],
     styles[`button--rounded-${rounded}`],
@@ -18,6 +26,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   return (
     <button
       ref={ref}
+      type={type}
       className={`${styles.button} ${className}`}
       disabled={props.disabled}
       style={width ? { width } : undefined}
