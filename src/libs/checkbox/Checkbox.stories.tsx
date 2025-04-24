@@ -27,6 +27,11 @@ const meta: Meta<typeof Checkbox> = {
       description: "도움말 문구",
       control: "text",
     },
+    shape: {
+      description: '체크박스 모양 ("square" | "circle")',
+      control: { type: "radio" },
+      options: ["square", "circle"],
+    },
     onChange: {
       action: "onChange",
       description: "체크박스 상태 변경 시 호출",
@@ -41,6 +46,8 @@ export const Default: Story = {
   args: {
     label: "Default Checkbox",
     checked: false,
+    type: "default",
+    shape: "square",
     helperText: "이곳에 도움말을 입력해 주세요",
   },
 };
@@ -69,6 +76,16 @@ export const Disabled: Story = {
     checked: true,
     disabled: true,
     helperText: "비활성화된 체크박스입니다.",
+  },
+};
+
+export const Circle: Story = {
+  args: {
+    label: "Circle Checkbox",
+    checked: false,
+    type: "default",
+    shape: "circle",
+    helperText: "원이냐 사각이냐 골라보세요",
   },
 };
 

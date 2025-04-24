@@ -8,7 +8,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       checked = false,
       onChange,
-      type,
+      type = "default",
+      shape = "square",
       disabled = false,
       helperText,
       ...props
@@ -19,12 +20,18 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       onChange?.(e.target.checked);
     };
 
-    const className = `${styles.checkbox} ${disabled ? styles.disabled : ""} ${
-      type ? styles[type] : ""
-    }`.trim();
+    const className = [
+      styles.checkboxContainer,
+      styles.checkbox,
+      styles[type],
+      styles[shape],
+      disabled && styles.disabled,
+    ]
+      .filter(Boolean)
+      .join(" ");
 
     return (
-      <label className={`${styles.checkboxContainer} ${className}`}>
+      <label className={`${className}`}>
         <input
           ref={ref}
           type="checkbox"
