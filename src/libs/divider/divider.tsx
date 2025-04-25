@@ -1,5 +1,5 @@
 import styles from "./Divider.module.css";
-import { DividerProps } from "./Divider.types";
+import { DividerProps } from "./divider.types";
 
 const Divider = ({
   width = "300px",
