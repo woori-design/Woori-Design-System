@@ -23,6 +23,11 @@ const meta = {
       description: "Divider의 두께",
       control: { type: "number", min: 1, max: 99 },
     },
+    style: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } satisfies Meta<typeof Divider>;
 
@@ -30,19 +35,19 @@ export default meta;
 
 type Story = StoryObj<typeof Divider>;
 
+export const Primary: Story = {
+  args: {
+    width: "300px",
+    thickness: 2,
+  },
+};
+
 export const Default: Story = {
   render: () => (
     <div style={{ width: "800px" }}>
       <Divider width="100%" thickness={1} />
     </div>
   ),
-};
-
-export const Primary: Story = {
-  args: {
-    width: "300px",
-    thickness: 2,
-  },
 };
 
 export const Width: Story = {
