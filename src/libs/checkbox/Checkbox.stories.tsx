@@ -1,5 +1,5 @@
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Checkbox from "./Checkbox";
 import { CheckboxProps } from "./Checkbox.type";
 
@@ -10,9 +10,13 @@ const meta: Meta<typeof Checkbox> = {
     layout: "centered",
   },
   argTypes: {
+    size: {
+      description: "체크박스 크기",
+      control: { type: "radio" },
+    },
     label: {
       description: "체크박스 라벨",
-      control: "text", // ★ label이 text로 컨트롤되도록 지정
+      control: "text",
     },
     checked: {
       description: "체크박스 상태",
@@ -23,16 +27,13 @@ const meta: Meta<typeof Checkbox> = {
       control: "boolean",
     },
     type: { description: '체크박스 타입 ("error" | "warning" | "default")' },
-    helperText: {
-      description: "도움말 문구",
-      control: "text",
-    },
     shape: {
       description: '체크박스 모양 ("square" | "circle")',
       control: { type: "radio" },
       options: ["square", "circle"],
     },
     onChange: {
+      control: false,
       action: "onChange",
       description: "체크박스 상태 변경 시 호출",
     },
@@ -42,67 +43,135 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
+const CheckboxComponent = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(!args.checked);
+
+  useEffect(() => {
+    setChecked(!!args.checked);
+  }, [args.checked]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const nextChecked = e.currentTarget.checked;
+    setChecked(nextChecked);
+    args.onChange?.(e);
+  };
+
+  return <Checkbox {...args} checked={checked} onChange={handleChange} />;
+};
+
 export const Default: Story = {
+  render: (args) => <CheckboxComponent {...args} />,
   args: {
     label: "Default Checkbox",
-    checked: false,
     type: "default",
     shape: "square",
-    helperText: "이곳에 도움말을 입력해 주세요",
+    size: "large",
   },
 };
 
-export const Error: Story = {
+export const Size: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "end", gap: "12px" }}>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>small</h3>
+        <Checkbox size="small" />
+      </div>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>medium</h3>
+        <Checkbox size="medium" />
+      </div>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>large</h3>
+        <Checkbox size="large" />
+      </div>
+    </div>
+  ),
+};
+
+export const Label: Story = {
   args: {
-    label: "Error Checkbox",
-    type: "error",
-    helperText: "에러 상황입니다.",
-    checked: false,
+    size: "large",
+    label: "체크 박스",
   },
 };
 
-export const Warning: Story = {
-  args: {
-    label: "Warning Checkbox",
-    type: "warning",
-    helperText: "경고 상황입니다.",
-    checked: false,
-  },
+export const Type: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "end", gap: "12px" }}>
+      <div style={{ display: "flex", width: "230px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="default checkbox" type="default" />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>default</h3>
+      </div>
+      <div style={{ display: "flex", width: "230px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="warning checkbox" type="warning" />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>warning</h3>
+      </div>
+      <div style={{ display: "flex", width: "230px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="error checkbox" type="error" />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>error</h3>
+      </div>
+    </div>
+  ),
+};
+
+export const Shape: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "end", gap: "12px" }}>
+      <div style={{ display: "flex", width: "230px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="square checkbox" shape="square" />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>square</h3>
+      </div>
+      <div style={{ display: "flex", width: "230px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="circle checkbox" shape="circle" />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>circle</h3>
+      </div>
+    </div>
+  ),
 };
 
 export const Disabled: Story = {
-  args: {
-    label: "Disabled Checkbox",
-    checked: true,
-    disabled: true,
-    helperText: "비활성화된 체크박스입니다.",
-  },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "end", gap: "12px" }}>
+      <div style={{ display: "flex", width: "360px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="disabled checkbox" disabled={true} />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>disabled</h3>
+      </div>
+      <div style={{ display: "flex", width: "360px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="checked/disabled checkbox" disabled={true} checked={true} />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>checked/disabled</h3>
+      </div>
+    </div>
+  ),
 };
 
-export const Circle: Story = {
-  args: {
-    label: "Circle Checkbox",
-    checked: false,
-    type: "default",
-    shape: "circle",
-    helperText: "원이냐 사각이냐 골라보세요",
-  },
+export const Checked: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "end", gap: "12px" }}>
+      <div style={{ display: "flex", width: "300px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="checked checkbox" checked={true} />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>checked: true</h3>
+      </div>
+      <div style={{ display: "flex", width: "300px", justifyContent: "space-between" }}>
+        <Checkbox size="large" label="not checked checkbox" checked={false} />
+        <h3 style={{ margin: "0px", paddingTop: "4px" }}>checked: false</h3>
+      </div>
+    </div>
+  ),
 };
 
-const Template: StoryFn<typeof Checkbox> = (args: CheckboxProps) => {
-  const [localChecked, setLocalChecked] = useState(!!args.checked);
+const Controlled: StoryFn<typeof Checkbox> = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(false);
 
-  const handleChange = (checked: boolean) => {
-    setLocalChecked(checked);
-    args.onChange?.(checked);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.currentTarget.checked);
+    alert(`체크 박스 상태: ${e.currentTarget.checked}`);
   };
 
-  return <Checkbox {...args} checked={localChecked} onChange={handleChange} />;
+  return <Checkbox {...args} checked={checked} onChange={handleChange} />;
 };
 
-export const Controlled = Template.bind({});
-Controlled.args = {
+export const OnChange = Controlled.bind({});
+OnChange.args = {
   label: "Controlled Checkbox",
-  helperText: "여러 번 눌러보세요!",
   checked: false,
 };
