@@ -19,12 +19,6 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.textWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .input {
   flex: none;
   box-sizing: border-box;
@@ -52,8 +46,7 @@ input[type="checkbox"] {
   width: var(--checkmark-width);
   height: var(--checkmark-height);
   border: solid #fff;
-  border-width: 0 var(--checkmark-border-thickness)
-    var(--checkmark-border-thickness) 0;
+  border-width: 0 var(--checkmark-border-thickness) var(--checkmark-border-thickness) 0;
   border-radius: var(--checkmark-radius);
   transform: translateY(-2px) rotate(45deg);
 }
@@ -69,15 +62,10 @@ input[type="checkbox"] {
 .label {
   font-size: 14px;
   line-height: 1.2;
+  padding-top: 4px;
 }
 
-.helperText {
-  font-size: 12px;
-  color: #6c757d;
-  margin-top: 4px;
-}
-
-.error .helperText {
+.error {
   color: #e53935;
 }
 
@@ -87,6 +75,7 @@ input[type="checkbox"] {
 .disabled .input {
   background-color: #f5f5f5;
   border-color: #ccc;
+  cursor: not-allowed;
 }
 .disabled .label {
   color: #999;
@@ -130,4 +119,20 @@ input[type="checkbox"] {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
+}
+
+.small {
+  --checkbox-size: 16px;
+  --checkmark-width: 4px;
+  --checkmark-height: 9px;
+  --checkmark-border-thickness: 2px;
+  --checkmark-radius: 1px;
+}
+
+.medium {
+  --checkbox-size: 20px;
+  --checkmark-width: 5px;
+  --checkmark-height: 12px;
+  --checkmark-border-thickness: 2px;
+  --checkmark-radius: 2px;
 }
