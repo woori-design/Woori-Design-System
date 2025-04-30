@@ -9,7 +9,7 @@ const fontWeightMap = {
   Sb: 600,
 } as const;
 
-const fontSizes = [11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 36, 48] as const;
+const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 36, 48] as const;
 const fontWeightKeys = ["Rg", "Md", "Sb"] as const;
 
 export const typography = Object.fromEntries(

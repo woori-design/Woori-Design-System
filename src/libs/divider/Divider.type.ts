@@ -1,5 +1,5 @@
 export interface DividerProps {
-  width: string;
+  width?: string;
   thickness?: number;
-  lineColor?: "primary" | "gray";
+  style?: React.CSSProperties;
 }
