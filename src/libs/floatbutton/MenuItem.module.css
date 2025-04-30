@@ -1,0 +1,32 @@
+/* 아이템 라벨 스타일 */
+.itemLabel {
+  position: absolute;
+  left: -100%;
+  font-size: 12px; /* 타이포그래피 시스템의 크기 */
+  font-family: "Pretendard", sans-serif; /* 직접 참조 */
+  font-weight: 500; /* Medium 기준 */
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff; /* primitiveColors.white */
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: translateX(-8px);
+}
+
+/* 호버 시 라벨 표시 */
+.menuItemContent:hover .itemLabel {
+  opacity: 1;
+}
+
+/* 메뉴 아이템 내부 콘텐츠 */
+.menuItemContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}

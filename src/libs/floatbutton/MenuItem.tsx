@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./FloatButton.module.css";
+import styles from "./MenuItem.module.css";
 import { MenuItemProps } from "./MenuItem.type";
 import { theme } from "../../styles/theme/theme";
 
