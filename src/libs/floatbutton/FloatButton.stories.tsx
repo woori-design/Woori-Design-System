@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import FloatButton from "./FloatButton";
-import MenuItem from "./MenuItem";
+import MenuItem from "../floatbutton/MenuItem";
 
 const meta: Meta<typeof FloatButton> = {
   title: "libs/FloatButton",
@@ -221,18 +221,8 @@ export const MenuItemOnClick: Story = {
     <div style={containerStyle}>
       <div style={itemContainerStyle}>
         <FloatButton size="md" shape="circle" style={storyButtonStyle}>
-          <MenuItem
-            key="search"
-            icon="🔍"
-            label="검색"
-            onClick={() => alert("검색 메뉴 클릭됨")}
-          />
-          <MenuItem
-            key="home"
-            icon="🏠"
-            label="홈"
-            onClick={() => alert("홈 메뉴 클릭됨")}
-          />
+          <MenuItem key="search" icon="🔍" label="검색" onClick={() => alert("검색 메뉴 클릭됨")} />
+          <MenuItem key="home" icon="🏠" label="홈" onClick={() => alert("홈 메뉴 클릭됨")} />
           <MenuItem
             key="settings"
             icon="⚙️"
