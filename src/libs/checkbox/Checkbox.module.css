@@ -1,64 +1,104 @@
+:root {
+  --checkbox-size: 24px;
+  --checkbox-border-width: 2px;
+  --checkbox-radius: 5px;
+
+  --checkmark-width: 6px;
+  --checkmark-height: 14px;
+  --checkmark-border-thickness: 3px;
+  --checkmark-radius: 2px;
+}
+
 input[type="checkbox"] {
   margin: 0;
 }
 
 .checkbox {
+  display: inline-flex;
   align-items: center;
   cursor: pointer;
 }
 
-.textWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .input {
-  width: 16px;
-  height: 16px;
+  flex: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: var(--checkbox-border-width) solid #5e99d6;
+  border-radius: var(--checkbox-radius);
+  background: #fff;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .input:checked {
-  accent-color: #0d6cc1;
+  background-color: #5e99d6;
+  border-color: #5e99d6;
+}
+
+.input:checked::after {
+  content: "";
+  width: var(--checkmark-width);
+  height: var(--checkmark-height);
+  border: solid #fff;
+  border-width: 0 var(--checkmark-border-thickness) var(--checkmark-border-thickness) 0;
+  border-radius: var(--checkmark-radius);
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.circle .input {
+  border-radius: 50%;
+}
+
+.square .input {
+  border-radius: var(--checkbox-radius);
 }
 
 .label {
   font-size: 14px;
   line-height: 1.2;
+  padding-top: 4px;
 }
 
-.helperText {
-  font-size: 12px;
-  color: #6c757d;
-  margin-top: 4px;
-}
-
-.error .helperText {
-  font-size: 12px;
+.error {
   color: #e53935;
-  margin-top: 4px;
 }
 
 .disabled {
   cursor: not-allowed;
 }
 .disabled .input {
-  accent-color: #ccc;
+  background-color: #f5f5f5;
+  border-color: #ccc;
+  cursor: not-allowed;
 }
 .disabled .label {
   color: #999;
 }
 
 .error .input {
-  accent-color: #e53935;
+  border-color: #e53935;
+  background-color: #fff;
+}
+.error .input:checked {
+  background-color: #e53935;
+  border-color: #e53935;
 }
 .error .label {
   color: #e53935;
 }
 
 .warning .input {
-  accent-color: #ffa726;
+  border-color: #ffa726;
+}
+.warning .input:checked {
+  background-color: #ffa726;
+  border-color: #ffa726;
 }
 .warning .label {
   color: #fba017;
@@ -66,17 +106,33 @@ input[type="checkbox"] {
 
 .errorMessage {
   color: #e53935;
-  margin: 4px 0 0 24px;
+  margin: 4px 0 0 calc(var(--checkbox-size) + 0.1875em);
   font-size: 0.875rem;
 }
 .warningMessage {
   color: #ffa726;
-  margin: 4px 0 0 24px;
+  margin: 4px 0 0 calc(var(--checkbox-size) + 0.1875em);
   font-size: 0.875rem;
 }
 
 .checkboxContainer {
   display: inline-flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.small {
+  --checkbox-size: 16px;
+  --checkmark-width: 4px;
+  --checkmark-height: 9px;
+  --checkmark-border-thickness: 2px;
+  --checkmark-radius: 1px;
+}
+
+.medium {
+  --checkbox-size: 20px;
+  --checkmark-width: 5px;
+  --checkmark-height: 12px;
+  --checkmark-border-thickness: 2px;
+  --checkmark-radius: 2px;
 }
