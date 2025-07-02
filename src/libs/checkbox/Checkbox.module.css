@@ -27,9 +27,9 @@ input[type="checkbox"] {
   align-items: center;
   width: var(--checkbox-size);
   height: var(--checkbox-size);
-  border: var(--checkbox-border-width) solid #5e99d6;
+  border: var(--checkbox-border-width) solid var(--color-light-lightnormal);
   border-radius: var(--checkbox-radius);
-  background: #fff;
+  background: var(--color-bw-white);
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
@@ -37,15 +37,15 @@ input[type="checkbox"] {
 }
 
 .input:checked {
-  background-color: #5e99d6;
-  border-color: #5e99d6;
+  background-color: var(--color-light-lightnormal);
+  border-color: var(--color-light-lightnormal);
 }
 
 .input:checked::after {
   content: "";
   width: var(--checkmark-width);
   height: var(--checkmark-height);
-  border: solid #fff;
+  border: solid var(--color-bw-white);
   border-width: 0 var(--checkmark-border-thickness) var(--checkmark-border-thickness) 0;
   border-radius: var(--checkmark-radius);
   transform: translateY(-2px) rotate(45deg);
@@ -66,35 +66,41 @@ input[type="checkbox"] {
 }
 
 .error {
-  color: #e53935;
+  color: var(--color-alert-alert);
 }
 
 .disabled {
   cursor: not-allowed;
 }
 .disabled .input {
-  background-color: #f5f5f5;
-  border-color: #ccc;
+  background-color: var(--color-bw-white);
+  border-color: var(--color-gray-medium);
   cursor: not-allowed;
 }
+
+.disabled .input:checked {
+  background-color: var(--color-gray-medium);
+}
+
 .disabled .label {
-  color: #999;
+  color: var(--color-gray-medium);
 }
 
 .error .input {
-  border-color: #e53935;
-  background-color: #fff;
+  border-color: var(--color-alert-alert);
+  background-color: var(--color-bw-white);
 }
 .error .input:checked {
-  background-color: #e53935;
-  border-color: #e53935;
+  background-color: var(--color-alert-alert);
+  border-color: var(--color-alert-alert);
 }
 .error .label {
-  color: #e53935;
+  color: var(--color-alert-alert);
 }
 
 .warning .input {
   border-color: #ffa726;
+  background-color: var(--color-bw-white);
 }
 .warning .input:checked {
   background-color: #ffa726;
@@ -105,10 +111,11 @@ input[type="checkbox"] {
 }
 
 .errorMessage {
-  color: #e53935;
+  color: var(--color-alert-alert);
   margin: 4px 0 0 calc(var(--checkbox-size) + 0.1875em);
   font-size: 0.875rem;
 }
+
 .warningMessage {
   color: #ffa726;
   margin: 4px 0 0 calc(var(--checkbox-size) + 0.1875em);

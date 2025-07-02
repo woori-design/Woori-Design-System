@@ -4,11 +4,11 @@
   align-items: center;
   transition: background-color 0.3s;
   cursor: pointer;
-  background-color: #f1f1f1;
+  background-color: var(--color-gray-light);
 }
 
 .switch.checked {
-  background-color: #d0e4ff;
+  background-color: var(--color-light-lightassistive);
 }
 
 .switch.disabled {
@@ -44,7 +44,7 @@
   position: absolute;
   border-radius: 50%;
   transition: transform 0.3s, background-color 0.3s;
-  background-color: #ffffff;
+  background-color: var(--color-bw-white);
 }
 
 .switch.small .slider {
@@ -87,33 +87,33 @@
 }
 
 .switch.pointColor-white.checked .slider {
-  background-color: #ffffff;
+  background-color: var(--color-bw-white);
 }
 
 .switch.pointColor-white:not(.checked) .slider {
-  background-color: #ffffff;
+  background-color: var(--color-bw-white);
 }
 
 .switch.pointColor-white.checked .point {
-  color: #1c7ed6;
+  color: var(--color-light-lightstrong);
 }
 
 .switch.pointColor-white:not(.checked) .point {
-  color: #000000;
+  color: var(--color-bw-black);
 }
 
 .switch.pointColor-color.checked .slider {
-  background-color: #5e99d6;
+  background-color: var(--color-light-lightnormal);
 }
 
 .switch.pointColor-color:not(.checked) .slider {
-  background-color: #afafaf;
+  background-color: var(--color-gray-strong);
 }
 
 .switch.pointColor-color.checked .point {
-  color: #ffffff;
+  color: var(--color-bw-white);
 }
 
 .switch.pointColor-color:not(.checked) .point {
-  color: #000000;
+  color: var(--color-bw-black);
 }
