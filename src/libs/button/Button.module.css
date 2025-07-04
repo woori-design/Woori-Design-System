@@ -10,8 +10,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1.4;
-  background-color: var(--color-light-lightassistive);
-  color: var(--color-dark-darknormal);
+  background-color: var(--color-dark-darknormal);
+  color: var(--color-bw-white);
 }
 
 .button:hover {
@@ -20,8 +20,8 @@
 }
 
 .button:active {
-  background-color: var(--color-dark-darknormal);
-  color: var(--color-bw-white);
+  background-color: var(--color-light-lightassistive);
+  color: var(--color-dark-darknormal);
 }
 
 .button:disabled {
@@ -87,4 +87,14 @@
 
 .button--rounded-100 {
   border-radius: 100px;
+}
+
+.button--secondary {
+  background-color: var(--color-light-lightassistive);
+  color: var(--color-dark-darknormal);
+}
+
+.button--secondary:active {
+  background-color: var(--color-dark-darknormal);
+  color: var(--color-bw-white);
 }

@@ -51,6 +51,25 @@ export const Size: Story = {
   ),
 };
 
+export const ColorScheme: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "24px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "5px", alignItems: "center" }}>
+        <h4>colorScheme="primary"</h4>
+        <Button size="large" variant="box" rounded={16}>
+          large/box
+        </Button>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "5px", alignItems: "center" }}>
+        <h4>colorScheme="secondary"</h4>
+        <Button size="large" variant="box" colorScheme="secondary" rounded={16}>
+          large/box
+        </Button>
+      </div>
+    </div>
+  ),
+};
+
 export const Variant: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "24px" }}>

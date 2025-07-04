@@ -9,6 +9,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     size,
     width,
     variant = "box",
+    colorScheme = "primary",
     rounded = 16,
     children,
     onClick,
@@ -19,6 +20,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     styles[`button--${size}`],
     variant === "text" && styles["button--text"],
     styles[`button--rounded-${rounded}`],
+    colorScheme === "secondary" && styles["button--secondary"],
   ]
     .filter(Boolean)
     .join(" ");
