@@ -22,7 +22,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  background-color: #0067ac; /* primitiveColors.blue500 */
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
   padding: 10px;
   box-sizing: border-box;
 }
@@ -60,12 +60,12 @@
 
 /* Circle 스타일 - 기본 색상 */
 .circleStyle {
-  background-color: #0067ac; /* primitiveColors.blue500 */
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
 }
 
 /* Square 스타일 - 반전 색상 */
 .squareStyle {
-  background-color: #cde5ff; /* primitiveColors.blue100 */
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
 }
 
 /* 둥근 모서리 버튼 */
@@ -75,8 +75,8 @@
 
 /* 기본 스타일 */
 .floatButton.default {
-  background-color: #0067ac; /* primitiveColors.blue500 */
-  color: #ffffff; /* primitiveColors.white */
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+  color: var(--color-bw-white); /* primitiveColors.white */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* color-shadow-light */
 }
 
@@ -133,7 +133,7 @@
 .menuItem {
   position: absolute; /* 절대 위치로 변경 */
   border-radius: 50%;
-  background-color: #cde5ff; /* primitiveColors.blue100 */
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,23 +152,23 @@
 
 /* 메뉴 아이템 스타일 - Circle 컨테이너 */
 .circleContainer .menuItem {
-  background-color: #cde5ff; /* primitiveColors.blue100 */
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
 }
 
 /* 메뉴 아이템 스타일 - Square 컨테이너 */
 .squareContainer .menuItem {
-  background-color: #0067ac; /* primitiveColors.blue500 */
-  color: #ffffff; /* primitiveColors.white */
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+  color: var(--color-bw-white); /* primitiveColors.white */
 }
 
 /* Circle hover 상태의 메뉴 아이템 */
 .circleContainer .menuItem:hover {
-  background-color: #b8d2f0; /* 밝게 조정된 blue100 */
+  background-color: var(--color-light-lightalternative);
 }
 
 /* Square hover 상태의 메뉴 아이템 */
 .squareContainer .menuItem:hover {
-  background-color: #004f84; /* primitiveColors.blue600 */
+  background-color: var(--color-dark-darknormal); /* primitiveColors.blue600 */
 }
 
 /* 마지막 메뉴 아이템은 아래 간격 없음 */
@@ -205,7 +205,7 @@
   font-family: "Pretendard", sans-serif; /* 직접 참조 */
   font-weight: 500; /* Medium 기준 */
   background: rgba(0, 0, 0, 0.7);
-  color: #ffffff; /* primitiveColors.white */
+  color: var(--color-bw-white); /* primitiveColors.white */
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
@@ -334,7 +334,7 @@
 
 /* 메인 버튼 스타일 */
 .mainButton {
-  background-color: #0067ac; /* primitiveColors.blue500 */
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
 }
 
 /* Plus 아이콘 크기 조정 - Circle 버튼 */
