@@ -1,12 +1,25 @@
 import { useRef, useState, MouseEvent, RefObject } from "react";
+import { createPortal } from "react-dom";
 import styles from "./FloatButton.module.css";
-import { FloatButtonProps } from "./FloatButton.type";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { useFloatButtonMenu } from "../../hooks/useFloatButtonMenu";
 import { PlusIconWhenCircleShape, PlusIconWhenSquareShape } from "../../icons/FloatButtonIcons";
+import { FloatButtonProps } from "./FloatButton.type";
+import { getPositionStyle } from "../../utils/getPositionStyle";
+import { useHasMounted } from "../../hooks/useHasMounted";
 
 const FloatButton = (props: FloatButtonProps) => {
-  const { size = "md", shape = "circle", style, className, children, onToggle, ...rest } = props;
+  const {
+    size = "md",
+    shape = "circle",
+    style,
+    className,
+    children,
+    position = "right-bottom",
+    offset = { x: 24, y: 24 },
+    onToggle,
+    ...rest
+  } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -53,8 +66,15 @@ const FloatButton = (props: FloatButtonProps) => {
     .filter(Boolean)
     .join(" ");
 
-  return (
-    <div className={styles.floatButtonWrapper}>
+  const positionStyle = getPositionStyle(position, offset);
+
+  const hasMounted = useHasMounted();
+  if (!hasMounted || typeof window === "undefined") {
+    return null;
+  }
+
+  return createPortal(
+    <div className={styles.floatButtonWrapper} style={positionStyle}>
       <button
         className={buttonClasses}
         style={style}
@@ -90,7 +110,8 @@ const FloatButton = (props: FloatButtonProps) => {
           })}
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 };
 
