@@ -83,7 +83,7 @@
 
 .switch .point {
   margin: 0;
-  color: #000000;
+  color: var(--color-bw-black);
 }
 
 .switch.pointColor-white.checked .slider {
@@ -115,5 +115,5 @@
 }
 
 .switch.pointColor-color:not(.checked) .point {
-  color: var(--color-bw-black);
+  color: var(--color-bw-white);
 }
