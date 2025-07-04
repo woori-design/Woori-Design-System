@@ -1,49 +1,46 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef } from "react";
 import styles from "./Checkbox.module.css";
 import { CheckboxProps } from "./Checkbox.type";
 
-const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    { label, checked, onChange, type, disabled = false, helperText, ...props },
-    ref
-  ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
+  const {
+    size,
+    label,
+    checked,
+    onChange,
+    type = "default",
+    shape = "square",
+    disabled = false,
+    ...rest
+  } = props;
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange?.(e.target.checked);
-    };
+  const className = [
+    styles.checkboxContainer,
+    styles.checkbox,
+    styles[type],
+    styles[shape],
+    styles[size],
+    disabled && styles.disabled,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-    const classNames = [
-      styles.checkbox,
-      disabled ? styles.disabled : "",
-      type ? styles[type] : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    return (
-      <>
-        <label className={`${styles.checkboxContainer} ${classNames}`}>
-          <input
-            ref={inputRef}
-            type="checkbox"
-            checked={checked}
-            onChange={handleChange}
-            disabled={disabled}
-            className={styles.input}
-            {...props}
-          />
-          <div className={styles.textWrapper}>
-            <span className={styles.label}>{label}</span>
-            {helperText && (
-              <div className={styles.helperText}>{helperText}</div>
-            )}
-          </div>
-        </label>
-      </>
-    );
-  }
-);
+  return (
+    <>
+      <label className={`${className}`}>
+        <input
+          ref={ref}
+          type="checkbox"
+          checked={checked}
+          onChange={onChange}
+          disabled={disabled}
+          className={styles.input}
+          {...rest}
+        />
+        <span className={styles.label}>{label}</span>
+      </label>
+    </>
+  );
+});
 
 export default Checkbox;
