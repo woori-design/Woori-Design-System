@@ -1,5 +1,5 @@
 import "./index.css";
-import "./styles/foundation/color/globalSemanticColors.css";
+import "./styles/foundation/color/globalSemanticColor.css";
 
 export { theme } from "./styles/theme/theme";
 export { default as FloatButton } from "./libs/floatbutton/FloatButton";
