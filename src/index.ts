@@ -6,3 +6,4 @@ export { default as FloatButton } from "./libs/floatbutton/FloatButton";
 export { default as Divider } from "./libs/divider/Divider";
 export { default as Checkbox } from "./libs/checkbox/Checkbox";
 export { default as Button } from "./libs/button/Button";
+export { default as Tooltip } from "./libs/tooltip/Tooltip";
