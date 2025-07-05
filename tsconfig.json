@@ -5,7 +5,6 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -13,7 +12,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
