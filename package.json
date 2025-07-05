@@ -8,6 +8,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
     },
@@ -40,6 +41,7 @@
     "@storybook/react-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@storybook/theming": "^8.6.12",
+    "@types/node": "^24.0.10",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.3.4",
