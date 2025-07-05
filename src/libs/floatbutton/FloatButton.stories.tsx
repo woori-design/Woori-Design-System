@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import FloatButton from "./FloatButton";
 import MenuItem from "../floatbutton/MenuItem";
@@ -59,26 +59,6 @@ const storyButtonStyle = {
   bottom: "auto",
   right: "auto",
 };
-
-// 스토리북에서 사용할 공통 컨테이너 스타일
-const containerStyle = {
-  display: "flex",
-  flexDirection: "column" as const,
-  alignItems: "center",
-  justifyContent: "center" as const,
-  padding: "20px",
-  paddingTop: "200px",
-  paddingBottom: "50px",
-};
-
-// 메뉴 아이템을 감싸는 컨테이너 스타일
-const itemContainerStyle = {
-  display: "flex",
-  flexDirection: "column" as const, // 버튼이 위에, 텍스트가 아래로
-  alignItems: "center",
-  gap: "20px",
-};
-
 export const Primary: Story = {
   render: (args) => {
     const [isVisible, setIsVisible] = useState(false);

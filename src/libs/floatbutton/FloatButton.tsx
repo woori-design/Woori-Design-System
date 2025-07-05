@@ -6,7 +6,7 @@ import { useFloatButtonMenu } from "../../hooks/useFloatButtonMenu";
 import { PlusIconWhenCircleShape, PlusIconWhenSquareShape } from "../../icons/FloatButtonIcons";
 import { FloatButtonProps } from "./FloatButton.type";
 import { getPositionStyle } from "../../utils/getPositionStyle";
-import { useHasMounted } from "../../hooks/useHasMounted";
+
 
 const FloatButton = (props: FloatButtonProps) => {
   const {
@@ -67,11 +67,6 @@ const FloatButton = (props: FloatButtonProps) => {
     .join(" ");
 
   const positionStyle = getPositionStyle(position, offset);
-
-  const hasMounted = useHasMounted();
-  if (!hasMounted || typeof window === "undefined") {
-    return null;
-  }
 
   return createPortal(
     <div className={styles.floatButtonWrapper} style={positionStyle}>
