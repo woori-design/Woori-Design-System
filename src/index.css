@@ -1,5 +1,6 @@
 @import "./libs/floatbutton/FloatButton.module.css";
 @import "./libs/floatbutton/MenuItem.module.css";
+@import "./libs/checkbox/Checkbox.module.css";
 @import "./libs/button/Button.module.css";
 @import "./libs/switch/Switch.module.css";
 @import "./styles/foundation/color/globalSemanticColor.css";
