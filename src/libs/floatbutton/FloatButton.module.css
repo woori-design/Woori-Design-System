@@ -1,90 +1,380 @@
+/* 플로팅 버튼 래퍼 */
+.floatButtonWrapper {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  width: max-content;
+  height: max-content;
+}
+
 .floatButton {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.2s ease;
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.floatButton.left {
-  left: 16px;
-  right: auto;
-}
-
-.floatButton.right {
-  right: 16px;
-  left: auto;
-}
-
-.floatButton.center {
-  left: 50%;
-  bottom: 16px;
-}
-
-.floatButton.small {
+/* 크기 클래스 */
+.floatButton.sm {
   width: 40px;
   height: 40px;
-  font-size: var(--font-size-small);
 }
 
-.floatButton.medium {
+.floatButton.md {
   width: 50px;
   height: 50px;
-  font-size: var(--font-size-base);
 }
 
-.floatButton.large {
-  width: 60px;
-  height: 60px;
-  font-size: var(--font-size-large);
+.floatButton.lg {
+  width: 65px;
+  height: 65px;
 }
 
+.floatButton.xl {
+  width: 80px;
+  height: 80px;
+}
+
+/* 원형 버튼 */
 .floatButton.circle {
   border-radius: 50%;
 }
 
+/* 사각 버튼 */
+.floatButton.square {
+  border-radius: 0;
+}
+
+/* Circle 스타일 - 기본 색상 */
+.circleStyle {
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+}
+
+/* Square 스타일 - 반전 색상 */
+.squareStyle {
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
+}
+
+/* 둥근 모서리 버튼 */
 .floatButton.rounded {
   border-radius: 12px;
 }
 
+/* 기본 스타일 */
 .floatButton.default {
-  background-color: var(--color-primary);
-  color: var(--color-light);
-  box-shadow: 0 4px 6px var(--color-shadow-light);
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+  color: var(--color-bw-white); /* primitiveColors.white */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* color-shadow-light */
 }
 
-.floatButton.default:hover {
-  background-color: var(--color-primary-hover);
-  box-shadow: 0 6px 10px var(--color-shadow-dark);
+/* 호버 상태 */
+.floatButton:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
 }
 
+/* 활성화 상태 */
 .floatButton:active {
   transform: scale(0.95);
-  background-color: var(--color-primary-active);
-  box-shadow: 0 2px 4px var(--color-shadow-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* 커스텀 스타일 */
 .floatButton.custom {
-  box-shadow: 0 4px 6px var(--color-shadow-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* color-shadow-light */
 }
 
+/* 커스텀 호버 상태 */
 .floatButton.custom:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 10px var(--color-shadow-dark);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* color-shadow-dark */
 }
 
+/* 커스텀 활성화 상태 */
 .floatButton.custom:active {
   transform: scale(0.95);
-  box-shadow: 0 2px 4px var(--color-shadow-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* color-shadow-dark */
+}
+
+/* 메뉴 컨테이너 스타일 */
+.menuContainer {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse; /* 애니메이션을 위해 역순 정렬 */
+  align-items: center;
+  pointer-events: none;
+  z-index: 99; /* 버튼보다 낮은 z-index로 시작 */
+  transition: z-index 0s 0.3s; /* z-index 변경 지연 */
+}
+
+/* menuOpen 상태일 때 z-index 올리기 */
+.menuContainer.menuOpen {
+  z-index: 101; /* 버튼보다 높은 z-index */
+  transition: z-index 0s 0s; /* 즉시 z-index 변경 */
+}
+
+/* 메뉴 아이템 스타일 */
+.menuItem {
+  position: absolute; /* 절대 위치로 변경 */
+  border-radius: 50%;
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  /* 초기 상태는 버튼 위치와 완전히 겹침 */
+  transform: scale(0) translateY(0);
+  /* 모든 아이템이 동시에 0.3초 동안 애니메이션 */
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease-out;
+  pointer-events: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* 낮은 z-index */
+  bottom: 0; /* 버튼 밑면과 정렬 */
+}
+
+/* 메뉴 아이템 스타일 - Circle 컨테이너 */
+.circleContainer .menuItem {
+  background-color: var(--color-light-lightassistive); /* primitiveColors.blue100 */
+}
+
+/* 메뉴 아이템 스타일 - Square 컨테이너 */
+.squareContainer .menuItem {
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+  color: var(--color-bw-white); /* primitiveColors.white */
+}
+
+/* Circle hover 상태의 메뉴 아이템 */
+.circleContainer .menuItem:hover {
+  background-color: var(--color-light-lightalternative);
+}
+
+/* Square hover 상태의 메뉴 아이템 */
+.squareContainer .menuItem:hover {
+  background-color: var(--color-dark-darknormal); /* primitiveColors.blue600 */
+}
+
+/* 마지막 메뉴 아이템은 아래 간격 없음 */
+.menuItem:last-child {
+  margin-bottom: 0;
+}
+
+/* 메뉴 아이템 사이즈 연동 */
+.sm .menuItem {
+  width: 34px; /* 40/65 * 55 = ~34px */
+  height: 34px;
+}
+
+.md .menuItem {
+  width: 42px; /* 50/65 * 55 = ~42px */
+  height: 42px;
+}
+
+.lg .menuItem {
+  width: 55px; /* 기준 사이즈 */
+  height: 55px;
+}
+
+.xl .menuItem {
+  width: 68px; /* 80/65 * 55 = ~68px */
+  height: 68px;
+}
+
+/* 아이템 라벨 스타일 */
+.itemLabel {
+  position: absolute;
+  left: -100%;
+  font-size: 12px; /* 타이포그래피 시스템의 크기 */
+  font-family: "Pretendard", sans-serif; /* 직접 참조 */
+  font-weight: 500; /* Medium 기준 */
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--color-bw-white); /* primitiveColors.white */
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: translateX(-8px);
+}
+
+/* 메뉴 열림 상태의 아이템 스타일 */
+.menuOpen .menuItem {
+  opacity: 1;
+  transform: scale(1) translateY(0); /* 기본값은 제자리 */
+  pointer-events: auto;
+  z-index: 102; /* 높은 z-index로 변경 */
+  /* 딜레이 없이 모든 아이템 동시에 애니메이션 */
+  transition-delay: 0s;
+}
+
+/* 메뉴 아이템 위치 계산을 위한 특수 클래스 */
+.menuItem:nth-child(1) {
+  transform-origin: center center;
+}
+.menuItem:nth-child(2) {
+  transform-origin: center center;
+}
+.menuItem:nth-child(3) {
+  transform-origin: center center;
+}
+.menuItem:nth-child(4) {
+  transform-origin: center center;
+}
+.menuItem:nth-child(5) {
+  transform-origin: center center;
+}
+
+/* 메뉴 닫을 때는 딜레이 없애고 버튼으로 돌아오는 애니메이션 */
+.menuContainer:not(.menuOpen) .menuItem {
+  transform: scale(0) translateY(0) !important; /* 버튼으로 완전히 돌아감 */
+  opacity: 0;
+  z-index: 1;
+}
+
+/* 메뉴 아이템 위치 애니메이션 - sm 크기 */
+.sm.menuOpen .menuItem:nth-child(1) {
+  transform: scale(1) translateY(-68px); /* 버튼-아이템 간 끝-끝 간격 50px 비율 적용 */
+}
+.sm.menuOpen .menuItem:nth-child(2) {
+  transform: scale(1) translateY(-133px); /* 첫 번째 + 간격(65px) */
+}
+.sm.menuOpen .menuItem:nth-child(3) {
+  transform: scale(1) translateY(-198px); /* 두 번째 + 간격(65px) */
+}
+.sm.menuOpen .menuItem:nth-child(4) {
+  transform: scale(1) translateY(-263px); /* 세 번째 + 간격(65px) */
+}
+.sm.menuOpen .menuItem:nth-child(5) {
+  transform: scale(1) translateY(-328px); /* 네 번째 + 간격(65px) */
+}
+
+/* 메뉴 아이템 위치 애니메이션 - md 크기 */
+.md.menuOpen .menuItem:nth-child(1) {
+  transform: scale(1) translateY(-85px); /* 버튼-아이템 간 끝-끝 간격 50px 비율 적용 */
+}
+.md.menuOpen .menuItem:nth-child(2) {
+  transform: scale(1) translateY(-166px); /* 첫 번째 + 간격(81px) */
+}
+.md.menuOpen .menuItem:nth-child(3) {
+  transform: scale(1) translateY(-247px); /* 두 번째 + 간격(81px) */
+}
+.md.menuOpen .menuItem:nth-child(4) {
+  transform: scale(1) translateY(-328px); /* 세 번째 + 간격(81px) */
+}
+.md.menuOpen .menuItem:nth-child(5) {
+  transform: scale(1) translateY(-409px); /* 네 번째 + 간격(81px) */
+}
+
+/* 메뉴 아이템 위치 애니메이션 - lg 크기 */
+.lg.menuOpen .menuItem:nth-child(1) {
+  transform: scale(1) translateY(-110px); /* 버튼-아이템 간 끝-끝 간격 50px */
+}
+.lg.menuOpen .menuItem:nth-child(2) {
+  transform: scale(1) translateY(-215px); /* 첫 번째 + 간격(105px) */
+}
+.lg.menuOpen .menuItem:nth-child(3) {
+  transform: scale(1) translateY(-320px); /* 두 번째 + 간격(105px) */
+}
+.lg.menuOpen .menuItem:nth-child(4) {
+  transform: scale(1) translateY(-425px); /* 세 번째 + 간격(105px) */
+}
+.lg.menuOpen .menuItem:nth-child(5) {
+  transform: scale(1) translateY(-530px); /* 네 번째 + 간격(105px) */
+}
+
+/* 메뉴 아이템 위치 애니메이션 - xl 크기 */
+.xl.menuOpen .menuItem:nth-child(1) {
+  transform: scale(1) translateY(-135px); /* 버튼-아이템 간 끝-끝 간격 50px 비율 적용 */
+}
+.xl.menuOpen .menuItem:nth-child(2) {
+  transform: scale(1) translateY(-264px); /* 첫 번째 + 간격(129px) */
+}
+.xl.menuOpen .menuItem:nth-child(3) {
+  transform: scale(1) translateY(-393px); /* 두 번째 + 간격(129px) */
+}
+.xl.menuOpen .menuItem:nth-child(4) {
+  transform: scale(1) translateY(-522px); /* 세 번째 + 간격(129px) */
+}
+.xl.menuOpen .menuItem:nth-child(5) {
+  transform: scale(1) translateY(-651px); /* 네 번째 + 간격(129px) */
+}
+
+/* 아이콘 컨테이너 스타일 */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+/* 메뉴가 열릴 때 플러스 아이콘 회전 애니메이션 */
+.menuOpen .iconContainer {
+  transform: rotate(-45deg);
+}
+
+/* 메인 버튼 스타일 */
+.mainButton {
+  background-color: var(--color-primary-primarymain); /* primitiveColors.blue500 */
+}
+
+/* Plus 아이콘 크기 조정 - Circle 버튼 */
+.sm .plusIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.md .plusIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.lg .plusIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.xl .plusIcon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Plus 아이콘 크기 조정 - Square 버튼 (85px 버튼에 48px 아이콘 비율 기준) */
+.square.sm .plusIcon {
+  width: 23px; /* (40/85) * 48 ≈ 23px */
+  height: 23px;
+}
+
+.square.md .plusIcon {
+  width: 28px; /* (50/85) * 48 ≈ 28px */
+  height: 28px;
+}
+
+.square.lg .plusIcon {
+  width: 37px; /* (65/85) * 48 ≈ 37px */
+  height: 37px;
+}
+
+.square.xl .plusIcon {
+  width: 45px; /* (80/85) * 48 ≈ 45px */
+  height: 45px;
 }

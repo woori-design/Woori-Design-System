@@ -7,6 +7,7 @@
   "module": "dist/index.es.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
     },
@@ -33,13 +34,15 @@
     "@storybook/addon-mdx-gfm": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
-    "@storybook/preview-api": "^8.6.12",
     "@storybook/manager-api": "^8.6.12",
+    "@storybook/preview-api": "^8.6.12",
     "@storybook/react": "^8.6.12",
     "@storybook/react-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@storybook/theming": "^8.6.12",
+    "@types/node": "^24.0.10",
     "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.3.4",
     "react-docgen-typescript": "^2.2.2",
     "storybook": "^8.6.12",
