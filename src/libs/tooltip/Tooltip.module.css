@@ -1,0 +1,126 @@
+.tooltipWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip {
+    position: absolute;
+    z-index: 10;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .tooltipVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .tooltipBlack {
+    background: #181f24;
+    color: #fff;
+  }
+  
+  .tooltipWhite {
+    background: #fff;
+    color: #181f24;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  
+ 
+  .tooltipTop {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 12px;
+  }
+  
+  .arrowTop {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid #181f24;
+  }
+  
+  .tooltipWhite .arrowTop {
+    border-top-color: #fff;
+  }
+  
+  
+  .tooltipBottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 12px;
+  }
+  
+  .arrowBottom {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #181f24;
+  }
+  
+  .tooltipWhite .arrowBottom {
+    border-bottom-color: #fff;
+  }
+  
+  
+  .tooltipLeft {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 12px;
+  }
+  
+  .arrowLeft {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 12px solid #181F24;
+    margin-left: -1px;
+  }
+  
+  .tooltipWhite .arrowLeft {
+    border-left-color: #fff;
+  }
+  
+  /* right: 툴팁이 오른쪽에 위치 */
+  .tooltipRight {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 12px;
+  }
+  
+  .arrowRight {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 12px solid #181F24;
+    margin-right: -1px;
+  }
+  
+  .tooltipWhite .arrowRight {
+    border-right-color: #fff;
+  }
