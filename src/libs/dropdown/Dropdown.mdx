@@ -1,0 +1,65 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+import * as DropdownStories from "./Dropdown.stories";
+import Dropdown from "./Dropdown";
+import React from "react";
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+Dropdown은 여러 선택지 중 하나를 선택할 수 있도록 하는 **선택형 UI 컴포넌트**입니다.  
+정보를 수집하는 양식에서 사용하거나 정보 필터링 및 정렬에 사용합니다.
+
+<Canvas of={DropdownStories.Default} />
+<Controls />
+
+<br />
+<br />
+
+## 사용법
+
+Dropdown은 반드시 `options`를 전달해야 합니다.  
+`placeholder`는 선택 전 안내 문구이며, `width`를 통해 너비를 조절할 수 있습니다.
+
+```tsx
+import { Dropdown } from "@woori-design";
+```
+
+<br />
+<br />
+
+### props
+
+- 선택 : `placeholder` (`string`) : 선택 전 안내 문구를 보여줍니다.
+- 선택 : `width` (`string`) : 컴포넌트의 너비를 직접 설정할 수 있습니다.
+- 필수 : `options` (`string[]`) : Dropdown에 표시할 선택 항목 리스트입니다.
+
+<br />
+<br />
+
+### 세부 사용법
+
+- Options는 배열 형태로 원하는 옵션 값을 추가할 수 있습니다.
+- Trigger(헤더)와 옵션 리스트는 구분선을 통해 시각적으로 분리됩니다.
+- 컬러는 디자인 시스템 파운데이션 변수(var(--color-xxx))만 사용합니다.
+- 선택된 값은 Trigger(헤더) 영역에 표시되며, 다시 Trigger를 클릭해 다른 값을 선택할 수 있습니다.
+- 선택 전에는 placeholder가 회색으로 표시되며, 값을 선택하면 텍스트가 더 굵고 진한 색으로 표시되어 구분됩니다.
+
+<br />
+<br />
+
+## 예시
+
+### 1. 기본 사용 예시 (Option 5개 이하)
+
+<Canvas of={DropdownStories.BasicOptions} />
+
+<br />
+<br />
+
+### 2. 다중 옵션 예시 (Option 5개 초과) 
+
+<Canvas of={DropdownStories.ManyOptions} />
+
+<br />
+<br />
